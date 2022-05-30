@@ -30,12 +30,18 @@ public class criandoTestes {
     }
 
     @Test
-    public void abrirPaginaGETest() {
+    public void abrirPaginaSpotifyTest() {
         webDriver.get("https://www.spotify.com/br/");
         Assertions.assertEquals("https://www.spotify.com/br/", webDriver.getCurrentUrl());
 
-    }
 
+    }
+    @Test
+    public void abrirPaginaSpotifyComCondicaoFalsa() {
+        webDriver.get("https://www.spotify.com/br/");
+        Assertions.assertEquals("https://www.spotify.com/br/", webDriver.getCurrentUrl());
+        Assertions.assertFalse(false);
+    }
     @Test
     public void realizarLoginNoSpotifycomDadosInvalidos() {
         webDriver.get("https://accounts.spotify.com/pt-PT/login/?continue=https%3A//open.spotify.com/__noul__%3Fl2l%3D1%26nd%3D1&_locale=pt-BR");
@@ -60,18 +66,6 @@ public class criandoTestes {
                 "Fu&scope=profile%20email%20openid&redirect_" +
                 "uri=https%3A%2F%2Faccounts.spotify.com%2Flogin%2Fgoogle%2Fredirect&flowName=GeneralOAuthFlow", webDriver.getCurrentUrl());
 
-    }
-
-    @Test
-    public void clicarNoBotaoGEeRedirecionarParaOinicio() {
-        webDriver.get("https://www.spotify.com/br/");
-        WebElement botaoGE = webDriver.findElement(By.xpath("/html/body/div[1]/div[1]/header/div/div[1]/a/span/svg/g/path"));
-        botaoGE.click();
-        Assertions.assertEquals("https://www.spotify.com/br/", webDriver.getCurrentUrl());
-        Assertions.assertFalse(false);
-
-
-        ////*[@id="menu-1-volei"]/a/span[1]
     }
     @Test
     public void verificaBotaoHomeTest(){
